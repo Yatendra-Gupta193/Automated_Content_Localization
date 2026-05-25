@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}Visual Localization{% endblock %}
+
+{% block content %}
+
+<div class="card">
+    <h2>🖼 Visual Localization</h2>
+
+    <form action="/process_visual" method="POST" enctype="multipart/form-data">
+
+        <label>Upload Image:</label>
+        <input type="file" name="image_file" accept="image/*" required>
+
+        <label>Optional Caption / UI Text:</label>
+        <textarea name="caption_text" rows="4" 
+        placeholder="Enter text from image (if any)..."></textarea>
+
+        <hr>
+
+        <label>Target Language:</label>
+        <select name="target_language" required>
+            <option value="">-- Select Language --</option>
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+            <option value="de">German</option>
+            <option value="ja">Japanese</option>
+            <option value="zh">Chinese (Simplified)</option>
+            <option value="pt">Portuguese</option>
+            <option value="ru">Russian</option>
+            <option value="ar">Arabic</option>
+            <option value="ko">Korean</option>
+            <option value="it">Italian</option>
+            <option value="nl">Dutch</option>
+            <option value="tr">Turkish</option>
+            <option value="id">Indonesian</option>
+        </select>
+
+        <label>Target Region / Culture:</label>
+        <input type="text" name="target_region" 
+        placeholder="e.g., India, France" required>
+
+        <label>Tone:</label>
+        <select name="tone" required>
+            <option value="">-- Select Tone --</option>
+            <option value="formal">Formal</option>
+            <option value="casual">Casual</option>
+            <option value="professional">Professional</option>
+            <option value="friendly">Friendly</option>
+        </select>
+
+        <button type="submit">Process Visual Localization</button>
+
+    </form>
+    <script>
+const imageInput = document.querySelector("input[name='image_file']");
+const preview = document.createElement("img");
+
+preview.style.maxWidth = "100%";
+preview.style.marginTop = "10px";
+
+imageInput.addEventListener("change", function() {
+    const file = this.files[0];
+    if (file) {
+        preview.src = URL.createObjectURL(file);
+        this.parentNode.appendChild(preview);
+    }
+});
+</script>
+
+
+    <div class="note">
+        <p>⚠ Supported formats: .jpg, .png, .jpeg</p>
+    </div>
+
+</div>
+
+{% endblock %}

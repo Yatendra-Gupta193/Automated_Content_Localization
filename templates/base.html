@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Localization AI{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    {% set current_section = '' %}
+    {% if request.endpoint == 'home' %}
+        {% set current_section = 'home' %}
+    {% elif request.endpoint == 'feedback' %}
+        {% set current_section = 'feedback' %}
+    {% elif request.endpoint in ['text_localization', 'generate'] %}
+        {% set current_section = 'text' %}
+    {% elif request.endpoint in ['voice_localization', 'process_voice'] %}
+        {% set current_section = 'voice' %}
+    {% elif request.endpoint in ['visual_localization', 'process_visual'] %}
+        {% set current_section = 'visual' %}
+    {% endif %}
+
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="logo">🌍</span>
+            <span class="brand-text">Localization AI</span>
+        </div>
+        <ul class="nav-links">
+            {% if current_section != 'home' %}
+                <li><a href="/">Home</a></li>
+            {% endif %}
+            {% if current_section != 'text' %}
+                <li><a href="/text">Text</a></li>
+            {% endif %}
+            {% if current_section != 'voice' %}
+                <li><a href="/voice">Voice</a></li>
+            {% endif %}
+            {% if current_section != 'visual' %}
+                <li><a href="/visual">Visual</a></li>
+            {% endif %}
+            {% if current_section != 'feedback' %}
+                <li><a href="/feedback">Feedback</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <header>
+        <h1>🌍 Automated Content Localization Platform</h1>
+        <p>Context-Aware Generative AI Based Localization</p>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>© 2026 Localization AI | Built with Flask</p>
+    </footer>
+    <!-- Loading Overlay -->
+<div id="loadingOverlay" class="loading-overlay">
+    <div class="loader"></div>
+    <p>🧠 AI is generating localized content...</p>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const forms = document.querySelectorAll("form");
+
+    forms.forEach(form => {
+        form.addEventListener("submit", function() {
+            document.getElementById("loadingOverlay").style.display = "flex";
+        });
+    });
+});
+</script>
+
+
+</body>
+</html>

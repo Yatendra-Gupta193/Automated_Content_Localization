@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Voice Localization Result{% endblock %}
+
+{% block content %}
+
+<div class="result-container">
+
+    <div class="metadata">
+        <h3>Localization Details</h3>
+        <p><strong>Language:</strong> {{ target_language }}</p>
+        <p><strong>Region:</strong> {{ target_region }}</p>
+        <p><strong>Tone:</strong> {{ tone }}</p>
+    </div>
+
+    <div class="box">
+        <h3>Transcribed Text</h3>
+        <p>{{ transcribed_text }}</p>
+    </div>
+
+    <div class="box output">
+        <h3>Localized Text</h3>
+        <p>{{ localized_output }}</p>
+    </div>
+
+    <div class="box output">
+        {% if audio_url %}
+        <h3 style="margin-top:15px;">Localized Voice Output</h3>
+        <audio controls>
+            <source src="{{ audio_url }}" type="audio/wav">
+        </audio>
+        {% else %}
+            <p style="color:red;">⚠ Voice generation failed. Check permissions.</p>
+        {% endif %}
+    </div>
+
+    <div class="actions">
+        <a href="/voice"><button>🔄 Try Again</button></a>
+    </div>
+
+</div>
+
+{% endblock %}

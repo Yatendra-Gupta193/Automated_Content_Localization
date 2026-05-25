@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Text Localization{% endblock %}
+
+{% block content %}
+
+<div class="card">
+    <h2>📝 Text Localization</h2>
+
+    <form action="/generate" method="POST">
+
+        <label>Enter Original Content:</label>
+        <textarea name="original_text" rows="6" required></textarea>
+
+        <label>Target Language:</label>
+        <select name="target_language" required>
+            <option value="">-- Select Language --</option>
+            <option value="English">English</option>
+            <option value="Hindi">Hindi</option>
+            <option value="Spanish">Spanish</option>
+            <option value="French">French</option>
+            <option value="German">German</option>
+            <option value="Japanese">Japanese</option>
+            <option value="Chinese (Simplified)">Chinese (Simplified)</option>
+            <option value="Portuguese">Portuguese</option>
+            <option value="Russian">Russian</option>
+            <option value="Arabic">Arabic</option>
+            <option value="Korean">Korean</option>
+            <option value="Italian">Italian</option>
+            <option value="Dutch">Dutch</option>
+            <option value="Turkish">Turkish</option>
+            <option value="Indonesian">Indonesian</option>
+        </select>
+
+        <label>Target Region / Culture:</label>
+        <input type="text" name="target_region" placeholder="e.g., India, France" required>
+
+        <label>Tone:</label>
+        <select name="tone" required>
+            <option value="">-- Select Tone --</option>
+            <option value="Formal">Formal</option>
+            <option value="Casual">Casual</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Narrative">Narrative</option>
+            <option value="Professional">Professional</option>
+        </select>
+
+        <button type="submit">Generate Localized Content</button>
+
+    </form>
+</div>
+
+{% endblock %}

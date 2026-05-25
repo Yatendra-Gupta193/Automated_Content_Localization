@@ -94,3 +94,9 @@ temp_converted.wav
 temp_temp_converted.wav
 temp_converted_*.wav
 output_*.wav
+
+activate.bat
+
+temp_converted.wav
+temp_temp_converted.wav
+*.wav

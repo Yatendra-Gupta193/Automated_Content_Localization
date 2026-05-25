@@ -7,7 +7,7 @@ __pycache__/
 *.so
 
 # Distribution / packaging
-.Python
+.Python 
 build/
 develop-eggs/
 dist/
@@ -84,3 +84,13 @@ Thumbs.db
 # Databases
 *.sqlite3
 *.db
+
+# MeCab Folders
+MeCab_Backup/
+MeCab_Local/
+
+# Temporary Audio Files
+temp_converted.wav
+temp_temp_converted.wav
+temp_converted_*.wav
+output_*.wav

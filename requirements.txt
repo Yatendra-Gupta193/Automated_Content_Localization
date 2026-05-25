@@ -17,3 +17,4 @@ opencv-python-headless==4.10.0.84
 easyocr==1.7.2
 
 pytesseract
+gunicorn==23.0.0

@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session
-from langdetect import detect, LangDetectException
+from langdetect import detect, LangDetectException # importing Libraries
 import os
 from werkzeug.utils import secure_filename
 import time

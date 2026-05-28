@@ -155,7 +155,7 @@ pip install -r requirements.txt
 ---
 
 # 🔑 API Configuration
-
+   
 This project uses the **Google Gemini API** for AI-based localization.
 
 ## Create `.env` File

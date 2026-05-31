@@ -1,4 +1,4 @@
-# 🌍 Automated Content Localization Platform
+# 🌍 Automated Content Localization Platform  
 
 An AI-powered localization platform that adapts **Text, Voice, and Visual Content** for different languages, cultures, and regions using **Generative AI, OCR, and Speech Processing**.
 
